@@ -6,7 +6,7 @@ import preprocess as pp
 
 
 ks4pro = pd.read_csv('data/815_2019_ks4provisional.csv', usecols=("URN","SCHNAME","PTEBACC_95","P8_BANDING","ATT8SCR"),dtype={'URN': 'S75'})
-ks4pro_pp = pp.clean_urn(ks4pro)
+ks4pro_pp = pp.clean_urn(ks4pro['URN'])
 
 ks4pro['URN'] = ks4pro['URN'].astype(str)
 #strip the unwanted junk characters in the URN column
