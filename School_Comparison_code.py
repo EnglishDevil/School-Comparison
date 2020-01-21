@@ -4,7 +4,6 @@ import pandas as pd
 import preprocess as pp
 
 
-
 ks4pro = pd.read_csv('data/815_2019_ks4provisional.csv', usecols=("URN","SCHNAME","PTEBACC_95","P8_BANDING","ATT8SCR"),dtype={'URN': 'S75'})
 ks4pro_pp = pp.clean_urn(ks4pro['URN'])
 
