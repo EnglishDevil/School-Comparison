@@ -2,7 +2,7 @@
 
 import pandas as pd
 import preprocess as pp
-
+import 2018data.py as 2018data
 
 ks4pro = pd.read_csv('data/815_2019_ks4provisional.csv', usecols=("URN","SCHNAME","PTEBACC_95","P8_BANDING","ATT8SCR"),dtype={'URN': 'S75'})
 ks4pro['URN'] = pp.clean_urn(ks4pro['URN'])
@@ -28,16 +28,9 @@ skipsch2019 = merge2019.loc[(merge2019['URN'] == "136664") | (merge2019['URN'] =
 # first load all of the tables
 from functools import reduce
 
-ks42018 = pd.read_csv('data/815_2018_ks4final.csv', usecols=("URN","SCHNAME","PTEBACC_95","P8_BANDING","ATT8SCR"),dtype={'URN': 'S75'})
-ks42018 = pp.clean_urn(ks42018['URN'])
-census2018 = pd.read_csv('data/815_2018_census.csv', usecols=("URN", "PNUMEAL"))
-cfr2018 = pd.read_csv('data/815_2018_cfr.csv', usecols=('URN', 'TOTALINCOME'))
+skipschcomp = skipsch2019.append(2018data)
 
-#2019 = [ks4pro, census2019, cfr2019]
-#2018 = [ks42018, census2018, cfr2018]
-
-
-print(skipsch2019.head())
+print(skipschcomp.info())
 
 # Need to restructure like before, getting the final table for 2019 then adding a 2019 year column.
 # do not merge the year by year data, we can append it to the dataset.

@@ -18,7 +18,3 @@ merge2018['YEAR'] = '2018'
 
 # locate the right schools.
 skipsch2018 = merge2018.loc[(merge2018['URN'] == "136664") | (merge2018['URN'] == "141179") | (merge2018['URN'] == "121716") | (merge2018['URN'] == "121690")]
-
-
-
-print(skipsch2018.head())
