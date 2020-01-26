@@ -2,5 +2,8 @@
 
 import pandas as pd
 import preprocess as pp
+import importmerge as im
 
-import data import merghe
+data = im(2018)
+
+print(data)
