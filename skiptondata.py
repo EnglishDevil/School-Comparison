@@ -1,4 +1,5 @@
 import pandas as pd
+from importmerge import get_school_data
 
 def get_skipsch_data(year : int) -> pd.DataFrame:
     school_data = get_school_data(year)
